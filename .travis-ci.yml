@@ -1,15 +1,17 @@
-language: node_js # Node.js based project
+language: node_js
 node_js:
-  - 12
+  - "stable"
 cache:
   directories:
     - node_modules
 script:
+  - npm test
   - npm run build
+
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  github_token: $github_token
   local_dir: build
   on:
     branch: master
